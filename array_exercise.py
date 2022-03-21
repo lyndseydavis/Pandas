@@ -5,42 +5,44 @@ import numpy as np
 print(
     "-----------------------------------------------   STEP ONE   -----------------------------------------------"
 )
+a = np.full((4, 3), 2)
 
-print()
+print(a)
 
 ## Step 2: Create a 3x4 array with a range from 0 to 110 where each number increases by 10
 print(
     "-----------------------------------------------   STEP TWO   -----------------------------------------------"
 )
-
-print()
+b = np.arange(0, 120, 10).reshape(3, 4)
+print(b)
 
 ## Step 3: Change the layout of the above array to be 4x3, store it in a new array
 print(
     "-----------------------------------------------   STEP THREE   -----------------------------------------------"
 )
-
-print()
+c = b.reshape(4, 3)
+print(c)
 
 ## Step 4: Multiply every elemnt of the above array by 3 and store the new values in a different array
 print(
     "-----------------------------------------------   STEP FOUR   -----------------------------------------------"
 )
-
-print()
+d = c * 3
+print(d)
 
 ## Step 5: Multiply your array from step one by your array from step 2
 print(
     "-----------------------------------------------   STEP FIVE   -----------------------------------------------"
 )
-
+# e = a * b
 ## This errored out... why?
-print()
+print("could not print because different layouts (3x4) and (4X3")
 
 ## Step 6: Comment out your code from Step 5 and then multiply your array from step 1 by your array from step 3
 print(
     "-----------------------------------------------   STEP SIX   -----------------------------------------------"
 )
-
+e = a * c
 ## this worked! why?
-print()
+print(e)
+print("Works becuase both arrays are the size shape.")
