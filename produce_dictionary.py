@@ -9,6 +9,7 @@
 ## 5. What is the average quantity sold across all products? (print out ONLY quantity sold)
 ## 6. Create a new dataframe for only those produce that have sold between 11,500 to 12,000 (quantity)
 ## 7. What is the total sales for the products in the above new dataframe? (print out ONLY total sales)
+import pandas as pd
 
 produce_dictionary = {
     "Potatoes": [0.86, 12219, 10508],
@@ -52,3 +53,69 @@ produce_dictionary = {
     "Kale": [5.02, 12293, 61711],
     "Bok choy": [1.42, 11565, 16422],
 }
+
+produce = pd.DataFrame(produce_dictionary)
+produce.index = ["Cost per Pound", "Quantity Sold", "Total Sale"]
+print(produce)
+
+print(
+    "----------------------------------Number 1---------------------------------------------"
+)
+print(
+    "Produce that had the highest and lowest sales in total sales (both name of produce and value)"
+)
+
+print()
+print()
+print(
+    "----------------------------------Number 2---------------------------------------------"
+)
+print(
+    "Using 'loc', display the quantity and total sales for 'Orange' and 'Beets' (together)"
+)
+orange_beets = produce.loc[["Quantity Sold", "Total Sale"], ["Orange", "Beets"]]
+print(orange_beets)
+
+print()
+print(
+    "----------------------------------Number 3---------------------------------------------"
+)
+print("Using 'loc', display the total sales for 'Apples' through 'Lettuce'")
+apples_thru_lettuce = produce.loc["Total Sale", "Apples":"Lettuce"]
+print(apples_thru_lettuce)
+print()
+print(
+    "----------------------------------Number 4---------------------------------------------"
+)
+print(
+    "Using 'at', update the quantity sold for Apricots to 11,955 and total sales to 44,353.05"
+)
+
+print()
+print(
+    "----------------------------------Number 5---------------------------------------------"
+)
+print(
+    "What is the average quantity sold across all products? (print out ONLY quantity sold)"
+)
+
+
+print()
+print(
+    "----------------------------------Number 6---------------------------------------------"
+)
+print(
+    "Create a new dataframe for only those produce that have sold between 11,500 to 12,000 (quantity)"
+)
+
+
+print()
+print(
+    "----------------------------------Number 7---------------------------------------------"
+)
+print(
+    "What is the total sales for the products in the above new dataframe? (print out ONLY total sales)"
+)
+total_sale = produce.loc["Total Sale"].sum()
+print(total_sale)
+print()
