@@ -58,17 +58,20 @@ produce = pd.DataFrame(produce_dictionary)
 produce.index = ["Cost per Pound", "Quantity Sold", "Total Sale"]
 produce = produce.T
 print(produce)
-
+print()
 print(
     "----------------------------------Number 1---------------------------------------------"
 )
 print(
     "Produce that had the highest and lowest sales in total sales (both name of produce and value)"
 )
-print("Highest Total Sales:")
-print(produce[produce.loc[:, "Total Sale"] == produce["Total Sale"].max()])
-print("Lowest Total Sales:")
-print(produce[produce.loc[:, "Total Sale"] == produce["Total Sale"].min()])
+print()
+max_sale = produce["Total Sale"].max()
+max_sale_id = produce["Total Sale"].idxmax()
+min_sale = produce["Total Sale"].min()
+min_sale_id = produce["Total Sale"].idxmin()
+print(f"Highest Sale: {max_sale_id}  ${max_sale}")
+print(f"Lowest Sale: {min_sale_id}  ${min_sale}")
 print()
 print(
     "----------------------------------Number 2---------------------------------------------"
@@ -76,6 +79,7 @@ print(
 print(
     "Using 'loc', display the quantity and total sales for 'Orange' and 'Beets' (together)"
 )
+print()
 orange_beets = produce.loc[["Orange", "Beets"], ["Quantity Sold", "Total Sale"]]
 print(orange_beets)
 
@@ -84,6 +88,7 @@ print(
     "----------------------------------Number 3---------------------------------------------"
 )
 print("Using 'loc', display the total sales for 'Apples' through 'Lettuce'")
+print()
 apples_thru_lettuce = produce.loc["Apples":"Lettuce", "Total Sale"]
 print(apples_thru_lettuce)
 print()
@@ -93,6 +98,7 @@ print(
 print(
     "Using 'at', update the quantity sold for Apricots to 11,955 and total sales to 44,353.05"
 )
+print()
 print("Updated Apricots Record:")
 produce.at["Apricots", "Quantity Sold"] = 11955
 produce.at["Apricots", "Total Sale"] = 44353.05
@@ -104,6 +110,7 @@ print(
 print(
     "What is the average quantity sold across all products? (print out ONLY quantity sold)"
 )
+print()
 avg_quantity_sold = produce.loc[:, "Quantity Sold"].mean()
 print(avg_quantity_sold)
 print()
@@ -113,7 +120,7 @@ print(
 print(
     "Create a new dataframe for only those produce that have sold between 11,500 to 12,000 (quantity)"
 )
-
+print()
 new_produce = produce[
     (produce["Quantity Sold"] > 11500) & (produce["Quantity Sold"] < 12000)
 ]
@@ -125,6 +132,7 @@ print(
 print(
     "What is the total sales for the products in the above new dataframe? (print out ONLY total sales)"
 )
+print()
 total_sale = new_produce.loc[:, "Total Sale"].sum()
 print(total_sale)
 print()
